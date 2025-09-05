@@ -1,7 +1,10 @@
 from page_object_models.base import Base
-from playwright.sync_api import expect
 
 
+"""
+Creating the Inventory class that implements actions on the inventory page,
+that will be used in the tests.
+"""
 class Inventory(Base):
 
     SHOPPING_CART_LOCATOR = "[data-test=\"shopping-cart-link\"]"
