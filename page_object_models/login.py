@@ -1,6 +1,6 @@
 from page_object_models.base import Base
 from playwright.sync_api import expect
-
+from utils.env_reader import get_user_credentials
 
 """
 Creating the Login class that implements actions on the login page,
@@ -22,7 +22,8 @@ class Login(Base):
         self.is_visible(self.PASSWORD_LOCATOR)
         self.is_visible(self.LOGIN_BUTTON)
 
-    def login(self, username: str, password: str):
+    def login(self):
+        username, password = get_user_credentials()
         self.fill_input(self.USERNAME_LOCATOR, username)
         self.fill_input(self.PASSWORD_LOCATOR, password)
         self.click_element(self.LOGIN_BUTTON)
