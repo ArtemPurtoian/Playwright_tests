@@ -1,6 +1,8 @@
 from page_object_models.base import Base
 from playwright.sync_api import expect
 from utils.env_reader import get_user_credentials
+import allure
+
 
 """
 Creating the Login class that implements actions on the login page,
@@ -30,5 +32,6 @@ class Login(Base):
         return self
 
     def check_login_success(self, text=HEADER_TEXT):
-        expect(self.page.locator(self.HEADER_LOCATOR).filter(
-            has_text=text).first).to_be_visible()
+        with allure.step("Check login success"):
+            expect(self.page.locator(self.HEADER_LOCATOR).filter(
+                has_text=text).first).to_be_visible()
