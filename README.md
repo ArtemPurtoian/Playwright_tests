@@ -6,13 +6,13 @@ I have implemented:
 - .env + env_reader.py to maintain environment configuration
 - conftest.py with a fixture that starts a browser from the configuration
 - Page Object Models with the classes representing the web pages, each having 
-its methods
+its methods, and allure steps for test reports
 - test modules representing separate test suites, each having its test scripts
 - Dockerfile, to run the scripts in a docker container
 ---
 ## 1. Prerequisites
 
-Make sure you have Python installed on your machine.
+Make sure you have installed Python and Allure on your machine.
 
 * Clone the repository
   > git clone https://github.com/ArtemPurtoian/Playwright_tests.git
@@ -25,7 +25,13 @@ Make sure you have Python installed on your machine.
 ---
 ## 2. Running the Tests on a local machine
 
-  > pytest -vv
+* Run the tests
+
+  > pytest -vv --alluredir=allure-report
+
+* Generate report on a web server
+
+  > allure serve .\allure-results\
 
 ## 3. Running the Tests in a Docker container 
 
