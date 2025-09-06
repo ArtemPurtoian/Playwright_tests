@@ -211,3 +211,4 @@ __marimo__/
 
 __init__.py
 .idea/
+allure-results/
